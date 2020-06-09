@@ -1,0 +1,25 @@
+button:not([type]):after {
+  background: red;
+  color: white;
+  content: "警告：このボタンにはtype属性がありません。";
+}
+.button:not(button):after {
+  background: red;
+  color: white;
+  content: "警告：要素が無効であるかのようなスタイルを設定しようとしています。この要素がきちんと無効化されていることを確認してください。";
+}
+
+a:empty:not([aria-label]):not([aria-labelledby]):after,
+button:empty:not([aria-label]):not([aria-labelledby]):after,
+button:not([aria-label]):not([aria-labelledby])img:only-child:not([alt]):after,
+a:not([aria-label]):not([aria-labelledby])img:only-child:not([alt]):after {
+  background: red;
+  color: white;
+  content: "このボタンに関する情報が十分ではありません。ボタンの中にテキストを含めてください。";
+}
+
+a[target="_blank"]:not([rel="noopener"]):after {
+  background: red;
+  color: white;
+  content: '警告：target属性が"_blank"の場合、rel属性を"noopener"にしてください。';
+}
